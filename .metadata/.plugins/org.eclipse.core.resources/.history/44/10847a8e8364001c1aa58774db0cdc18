@@ -1,0 +1,16 @@
+package locator.pages.register;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import locator.driver.DriverSingleton;
+
+public class Register {
+
+private WebDriver driver;
+	
+	public Register() {
+		this.driver = DriverSingleton.getDriver();
+		PageFactory.initElements(driver, this);
+	}
+}

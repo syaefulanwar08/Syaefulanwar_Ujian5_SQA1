@@ -1,0 +1,7 @@
+INDEX VERSION 1.131+D:\BELAJAR\Bootcamp SQA\QualityAssurance\Selenium\Syaefulanwar_Ujian5_SQA1\.metadata\.plugins\org.eclipse.jdt.core
+4279032037.index
+405274884.index
+960247738.index
+792930013.index
+1865797976.index
+368463410.index

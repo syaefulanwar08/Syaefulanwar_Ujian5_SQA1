@@ -1,0 +1,142 @@
+package locator.pages.register;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import locator.driver.DriverSingleton;
+
+public class Register {
+
+	private WebDriver driver;
+	
+	public Register() {
+		this.driver = DriverSingleton.getDriver();
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(xpath = "//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")
+	private WebElement menuSignin;
+	
+	@FindBy(id = "email_create")
+	private WebElement txtEmail;
+	
+	@FindBy(id = "id_gender1")
+	private WebElement txtGenderMr;
+	
+	@FindBy(id = "id_gender2")
+	private WebElement txtGenderMrs;
+	
+	@FindBy(id = "customer_firstname")
+	private WebElement txtFirstname;
+	
+	@FindBy(id = "customer_lastname")
+	private WebElement txtLastname;
+	
+	@FindBy(id = "email")
+	private WebElement txtEmailUser;
+	
+	@FindBy(id = "psswd")
+	private WebElement txtPassword;
+	
+	@FindBy(id = "newsletter")
+	private WebElement txtNewsletter;
+	
+	@FindBy(id = "optin")
+	private WebElement txtOptin;
+	
+	
+	///// YOUR ADDRESS
+	
+	@FindBy(id = "firstname")
+	private WebElement txtFirstnameAddress;
+	
+	@FindBy(id = "lastname")
+	private WebElement txtLastnameAddress;
+	
+	@FindBy(id = "company")
+	private WebElement txtCompany;
+	
+	@FindBy(id = "address1")
+	private WebElement txtAddress1;
+	
+	@FindBy(id = "address2")
+	private WebElement txtAddress2;
+	
+	public void gotoSignin() {
+		menuSignin.click();
+	}
+	
+	public void inputEmail() {
+		txtEmail.sendKeys("syaefulanwar08@gmail.com", Keys.TAB, Keys.ENTER);
+	}
+	
+	public void inputGender(int selection) {
+		switch(selection) {
+		case 1 :
+			txtGenderMr.click();
+			break;
+		case 2 :
+			txtGenderMrs.click();
+			break;
+		}
+	}
+	
+	public void inputFirstname(String firstname) {
+		txtFirstname.sendKeys(firstname);
+	}
+	
+	public void inputLastname(String lastname) {
+		txtLastname.sendKeys(lastname);
+	}
+	
+	public void inputEmailUser(String email) {
+		txtEmailUser.sendKeys(email);
+	}
+	
+	public void inputPassword(String password) {
+		txtPassword.sendKeys(password);
+	}
+	
+	public void inputDateofBirth(int inDays, int inMonth, int inYears) {
+		Select days = new Select(driver.findElement(By.id("days")));
+		days.deselectByIndex(inDays);
+		Select month = new Select(driver.findElement(By.id("month")));
+		month.deselectByIndex(inMonth);
+		Select years = new Select(driver.findElement(By.id("years")));
+		years.deselectByIndex(inYears);
+	}
+	
+	public void inputNewsletter() {
+		txtNewsletter.click();
+	}
+	
+	public void inputOptin() {
+		txtOptin.click();
+	}
+	
+	///// YOUR ADDRESS
+	public void inputFirstnameAddress(String firstname) {
+		txtFirstnameAddress.sendKeys(firstname);
+	}
+	
+	public void inputLastnameAddress(String lastname) {
+		txtLastnameAddress.sendKeys(lastname);
+	}
+	
+	public void inputCompany(String company) {
+		txtCompany.sendKeys(company);
+	}
+	
+	public void inputAddress1(String address1) {
+		txtAddress1.sendKeys(address1);
+	}
+	
+	public void inputAddress2(String address2) {
+		txtAddress2.sendKeys(address2);
+	}
+}

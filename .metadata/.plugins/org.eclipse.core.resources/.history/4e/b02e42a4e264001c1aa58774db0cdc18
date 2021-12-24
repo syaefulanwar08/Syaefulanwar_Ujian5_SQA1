@@ -1,0 +1,24 @@
+package locator.pages.checkout;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import locator.driver.DriverSingleton;
+
+public class Checkout {
+	private WebDriver driver;
+	
+	public Checkout() {
+		this.driver = DriverSingleton.getDriver();
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(id = "button_order_cart")
+	private WebElement btnCheckout;
+	
+	public void gotoCheckout() {
+		btnCheckout.click();
+	}
+}

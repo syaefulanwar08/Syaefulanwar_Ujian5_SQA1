@@ -1,0 +1,97 @@
+package locator.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
+import locator.driver.DriverSingleton;
+import locator.pages.alert.Alerts;
+import locator.pages.elements.Elements;
+import locator.pages.elements.WebTables;
+import locator.pages.form.Form;
+import locator.pages.jqueryui.JqueryUI;
+
+
+public class MainApp {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		MainApp main = new MainApp();
+		// main.menuElements();
+		// main.latihanForm();
+		// main.JqueryuiMain();
+		// main.latihanAlert();
+		main.latihanWebTables();
+	}
+
+	public void menuElements() {
+
+		WebDriver driver = DriverSingleton.getInstance().getDriver(); 
+		driver.get("https://demoqa.com/");
+
+		//to perform Scroll on application using Selenium
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,350)", "");
+
+		Elements elements = new Elements();
+		elements.gotoElements();
+		elements.menuTextbox();
+		elements.textBox("test", "test@test.com", "test", "test");
+
+		elements.menuCheckbox();
+	}
+
+	public void latihanForm() throws InterruptedException {	
+		WebDriver driver = DriverSingleton.getInstance().getDriver(); 
+		driver.get("https://demoqa.com/");
+		
+		Form form = new Form();
+		form.gotoForm();
+		form.isiForm();
+		form.setTextDOB("01 Dec 2021");
+		
+		List<String> lstString = new ArrayList<String>();
+		lstString.add("English");
+		lstString.add("Chemistry");
+		form.setTextSubject(lstString);
+		form.hobbies();
+		form.upload("D:\\cat.jpg");
+		form.Address();
+		form.lstState(1);
+		form.lstCity(2);
+		form.Submit();
+		
+	}
+	
+	
+	public void JqueryuiMain() {
+		WebDriver driver = DriverSingleton.getInstance().getDriver(); 
+		driver.get("https://jqueryui.com/droppable/");
+		driver.switchTo().frame(driver.findElement(By.cssSelector("#content > iframe")));
+		JqueryUI jqueryui = new JqueryUI();
+		jqueryui.DraggableDroppable();
+	}
+	
+	public void latihanAlert() throws InterruptedException {
+		WebDriver driver = DriverSingleton.getInstance().getDriver(); 
+		driver.get("http://localhost:8080/alerts.html");
+		
+		Alerts alert = new Alerts();
+		alert.DisplayedAlert();
+		alert.ConfirmAlert();
+		alert.PromptAlert();
+	}
+	
+	public void latihanWebTables() {
+		WebDriver driver = DriverSingleton.getInstance().getDriver(); 
+		driver.get("https://demoqa.com/elements");
+		
+		WebTables webtables = new WebTables();
+		webtables.gotoWebTables();
+		webtables.RegistrationForm();
+		webtables.Delete();
+	}
+}

@@ -1,0 +1,32 @@
+package locator.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
+import locator.driver.DriverSingleton;
+import locator.pages.alert.Alerts;
+import locator.pages.elements.Elements;
+import locator.pages.elements.WebTables;
+import locator.pages.form.Form;
+import locator.pages.jqueryui.JqueryUI;
+
+
+public class MainApp {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		MainApp main = new MainApp();
+		main.register();
+		
+	}
+	
+	public void register() {
+		
+	}
+
+
+}

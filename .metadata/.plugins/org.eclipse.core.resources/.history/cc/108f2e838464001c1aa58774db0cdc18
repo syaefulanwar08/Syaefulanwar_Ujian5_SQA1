@@ -1,0 +1,34 @@
+package locator.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
+import locator.driver.DriverSingleton;
+import locator.pages.register.Register;
+
+
+
+public class MainApp {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		MainApp main = new MainApp();
+		main.register();
+		
+	}
+	
+	public void register() {
+		
+		WebDriver driver = DriverSingleton.getInstance().getDriver(); 
+		driver.get("http://automationpractice.com/index.php");
+		
+		Register register = new Register();
+		register.gotoSignin();
+	}
+
+
+}

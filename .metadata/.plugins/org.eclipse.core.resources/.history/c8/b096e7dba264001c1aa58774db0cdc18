@@ -1,0 +1,65 @@
+package locator.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
+import locator.driver.DriverSingleton;
+import locator.pages.addToChart.AddToChart;
+import locator.pages.register.Register;
+
+
+
+public class MainApp {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		WebDriver driver = DriverSingleton.getInstance().getDriver(); 
+		driver.get("http://automationpractice.com/index.php");
+		
+		MainApp main = new MainApp();
+		main.register();
+		
+	}
+	
+	public void register() {
+		
+		Register register = new Register();
+		register.gotoSignin();
+		register.inputEmail("syaefulanwar1@gmail.com");
+		register.inputGender(1);
+		register.inputFirstname("Syaeful");
+		register.inputLastname("Anwar");
+		register.inputPassword("anwarsyaeful");
+		register.inputDateofBirth("29", "8", "1997");
+		register.inputNewsletter();
+		register.inputOptin();
+		register.inputFirstnameAddress("syaeful");
+		register.inputLastnameAddress("anwar");
+		register.inputCompany("PT.Dika");
+		register.inputAddress1("Bandung");
+		register.inputAddress2("Jakarta");
+		register.inputCity("Bandung");
+		register.inputState("32");
+		register.inputPostcode("32124");
+		register.inputCountry("21");
+		register.inputAdditionalInfo("yes");
+		register.inputPhoneHome("02298865418");
+		register.inputPhoneMobile("08976642468");
+		register.inputAlias("bandung");
+	}
+	
+	public void addToChartDress() {
+		
+		AddToChart add = new AddToChart();
+		add.gotoDress();
+		add.addToChartDress();
+		add.closeModalDress();
+		
+	}
+
+
+}

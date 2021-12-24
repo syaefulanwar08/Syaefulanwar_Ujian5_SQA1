@@ -1,0 +1,24 @@
+package locator.pages.addToChart;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import locator.driver.DriverSingleton;
+
+public class AddToChart {
+private WebDriver driver;
+	
+	public AddToChart() {
+		this.driver = DriverSingleton.getDriver();
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/a")
+	private WebElement menuDress;
+	
+	public void gotoDress() {
+		menuDress.click();
+	}
+}
